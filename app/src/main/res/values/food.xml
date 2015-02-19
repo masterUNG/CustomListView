@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="food">
+
+        <item>อาหารชุดที่ 1</item>
+        <item>อาหารชุดที่ 2</item>
+        <item>อาหารชุดที่ 3</item>
+        <item>อาหารชุดที่ 4</item>
+        <item>อาหารชุดที่ 5</item>
+        <item>อาหารชุดที่ 6</item>
+        <item>อาหารชุดที่ 7</item>
+        <item>อาหารชุดที่ 8</item>
+        <item>อาหารชุดที่ 9</item>
+        <item>อาหารชุดที่ 10</item>
+        <item>อาหารชุดที่ 11</item>
+        <item>อาหารชุดที่ 12</item>
+        <item>อาหารชุดที่ 13</item>
+        <item>อาหารชุดที่ 14</item>
+        <item>อาหารชุดที่ 15</item>
+        <item>อาหารชุดที่ 16</item>
+        <item>อาหารชุดที่ 17</item>
+        <item>อาหารชุดที่ 18</item>
+        <item>อาหารชุดที่ 19</item>
+        <item>อาหารชุดที่ 20</item>
+
+    </string-array>
+
+</resources>
