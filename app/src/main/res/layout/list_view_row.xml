@@ -9,7 +9,7 @@
         android:layout_height="@dimen/image"
         android:id="@+id/imvIconList"
         android:padding="3dp"
-        android:src="@drawable/food1" />
+        android:layout_margin="3dp" />
 
     <TextView
         android:layout_width="wrap_content"

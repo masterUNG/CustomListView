@@ -14,15 +14,14 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int[] intTarget = {R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4, R.drawable.food5,
-                R.drawable.food6, R.drawable.food7, R.drawable.food8, R.drawable.food9, R.drawable.food10,
+        int[] intTarget = {R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4, R.drawable.food5, R.drawable.food6, R.drawable.food7, R.drawable.food8, R.drawable.food9, R.drawable.food10,
                 R.drawable.food11, R.drawable.food12, R.drawable.food13, R.drawable.food14, R.drawable.food15,
                 R.drawable.food16, R.drawable.food17, R.drawable.food18, R.drawable.food19, R.drawable.food20};
 
         String[] strNameFood = getResources().getStringArray(R.array.food);
 
         //Create Adapter
-        myAdapter objmyAdapter = new myAdapter(MainActivity.this, strNameFood, intTarget);
+        myAdapter objmyAdapter = new myAdapter(getApplicationContext(), strNameFood, intTarget);
 
         ListView myListView = (ListView) findViewById(R.id.listView);
         myListView.setAdapter(objmyAdapter);

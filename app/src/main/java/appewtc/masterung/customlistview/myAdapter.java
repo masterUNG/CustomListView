@@ -14,14 +14,14 @@ import android.widget.TextView;
 public class myAdapter extends BaseAdapter{
 
     //Explicit
-    private Context objContext;
+    private Context mContext;
     private String[] strNameFood;
     private int[] intMyTarget;
 
 
     public myAdapter(Context context, String[] strName, int[] targetID) {
 
-        this.objContext = context;
+        this.mContext = context;
         this.strNameFood = strName;
         this.intMyTarget = targetID;
 
@@ -45,20 +45,28 @@ public class myAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        LayoutInflater objLayoutInflater = (LayoutInflater) objContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        if (convertView == null) {
+//        if (convertView == null) {
+//
+//            convertView = mInflater.inflate(R.layout.list_view_row, parent, false);
+//            TextView objTextView = (TextView) convertView.findViewById(R.id.textView);
+//            objTextView.setText(strNameFood[position]);
+//
+//            ImageView objImageView = (ImageView) convertView.findViewById(R.id.imvIconList);
+//            objImageView.setBackgroundResource(intMyTarget[position]);
+//
+//        }   // if
 
-            convertView = objLayoutInflater.inflate(R.layout.list_view_row, parent, false);
-            TextView objTextView = (TextView) convertView.findViewById(R.id.textView);
-            objTextView.setText(strNameFood[position]);
 
-            ImageView objImageView = (ImageView) convertView.findViewById(R.id.imvIconList);
-            objImageView.setBackgroundResource(intMyTarget[position]);
+        View view = mInflater.inflate(R.layout.list_view_row, parent, false);
+        TextView objTextView = (TextView) view.findViewById(R.id.textView);
+        objTextView.setText(strNameFood[position]);
 
-        }   // if
+        ImageView objImageView = (ImageView) view.findViewById(R.id.imvIconList);
+        objImageView.setBackgroundResource(intMyTarget[position]);
 
-        return convertView;
+        return view;
     }   // getView
 
 }   // Main Class
