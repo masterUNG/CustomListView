@@ -9,10 +9,15 @@ import android.widget.ListView;
 
 public class MainActivity extends ActionBarActivity {
 
+    private FoodTABLE objFoodTABLE;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Create Or Connected Database
+        createOrConnectedDatabase();
 
         int[] intTarget = {R.drawable.food1, R.drawable.food2, R.drawable.food3, R.drawable.food4, R.drawable.food5, R.drawable.food6, R.drawable.food7, R.drawable.food8, R.drawable.food9, R.drawable.food10,
                 R.drawable.food11, R.drawable.food12, R.drawable.food13, R.drawable.food14, R.drawable.food15,
@@ -28,6 +33,10 @@ public class MainActivity extends ActionBarActivity {
 
 
     }   // onCreate
+
+    private void createOrConnectedDatabase() {
+        objFoodTABLE = new FoodTABLE(this);
+    }   // createOrConnectedDatabase
 
 
     @Override
