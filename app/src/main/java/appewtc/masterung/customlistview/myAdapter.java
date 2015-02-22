@@ -16,13 +16,15 @@ public class myAdapter extends BaseAdapter{
     //Explicit
     private Context mContext;
     private String[] strNameFood;
+    private String[] strPriceFood;
     private int[] intMyTarget;
 
 
-    public myAdapter(Context context, String[] strName, int[] targetID) {
+    public myAdapter(Context context, String[] strName, String[] strPrice, int[] targetID) {
 
         this.mContext = context;
         this.strNameFood = strName;
+        this.strPriceFood = strPrice;
         this.intMyTarget = targetID;
 
     }   // Constructor
@@ -52,6 +54,9 @@ public class myAdapter extends BaseAdapter{
         //TextView Show ListFood
         TextView objTextView = (TextView) view.findViewById(R.id.textView);
         objTextView.setText(strNameFood[position]);
+
+        TextView objPriceText = (TextView) view.findViewById(R.id.textView2);
+        objPriceText.setText(strPriceFood[position]);
 
         //ImageView Show Food
         ImageView objImageView = (ImageView) view.findViewById(R.id.imvIconList);

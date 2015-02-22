@@ -52,8 +52,10 @@ public class MainActivity extends ActionBarActivity {
 
         String[] strNameFood = objFoodTABLE.listFood();
 
+        String[] strPrice = objFoodTABLE.listPrice();
+
         //Create Adapter
-        myAdapter objmyAdapter = new myAdapter(getApplicationContext(), strNameFood, intTarget);
+        myAdapter objmyAdapter = new myAdapter(getApplicationContext(), strNameFood, strPrice, intTarget);
 
         ListView myListView = (ListView) findViewById(R.id.listView);
         myListView.setAdapter(objmyAdapter);

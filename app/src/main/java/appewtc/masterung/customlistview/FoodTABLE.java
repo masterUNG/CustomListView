@@ -26,6 +26,21 @@ public class FoodTABLE {
 
     }   // Constructor
 
+    public String[] listPrice() {
+
+        String strListPrice[] = null;
+        Cursor objCursor = readSQLite.query(TABEL_FOOD, new String[]{COLUMN_ID, COLUMN_PRIVE}, null, null, null, null, null);
+        objCursor.moveToFirst();
+        strListPrice = new String[objCursor.getCount()];
+        for (int i = 0; i < objCursor.getCount(); i++) {
+            strListPrice[i] = objCursor.getString(objCursor.getColumnIndex(COLUMN_PRIVE));
+            objCursor.moveToNext();
+        }
+
+        objCursor.close();
+        return strListPrice;
+    }
+
     public String[] listFood() {
 
         String strListFood[] = null;
