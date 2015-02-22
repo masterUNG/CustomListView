@@ -47,22 +47,13 @@ public class myAdapter extends BaseAdapter{
 
         LayoutInflater mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-//        if (convertView == null) {
-//
-//            convertView = mInflater.inflate(R.layout.list_view_row, parent, false);
-//            TextView objTextView = (TextView) convertView.findViewById(R.id.textView);
-//            objTextView.setText(strNameFood[position]);
-//
-//            ImageView objImageView = (ImageView) convertView.findViewById(R.id.imvIconList);
-//            objImageView.setBackgroundResource(intMyTarget[position]);
-//
-//        }   // if
-
-
         View view = mInflater.inflate(R.layout.list_view_row, parent, false);
+
+        //TextView Show ListFood
         TextView objTextView = (TextView) view.findViewById(R.id.textView);
         objTextView.setText(strNameFood[position]);
 
+        //ImageView Show Food
         ImageView objImageView = (ImageView) view.findViewById(R.id.imvIconList);
         objImageView.setBackgroundResource(intMyTarget[position]);
 
