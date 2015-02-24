@@ -1,13 +1,17 @@
 package appewtc.masterung.customlistview;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.apache.http.HttpEntity;
@@ -26,6 +30,7 @@ import java.io.InputStreamReader;
 public class MainActivity extends ActionBarActivity {
 
     private FoodTABLE objFoodTABLE;
+    private String[] strNameFood, strPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +55,9 @@ public class MainActivity extends ActionBarActivity {
 
         //String[] strNameFood = getResources().getStringArray(R.array.food);
 
-        String[] strNameFood = objFoodTABLE.listFood();
+            strNameFood = objFoodTABLE.listFood();
 
-        String[] strPrice = objFoodTABLE.listPrice();
+            strPrice = objFoodTABLE.listPrice();
 
         //Create Adapter
         myAdapter objmyAdapter = new myAdapter(getApplicationContext(), strNameFood, strPrice, intTarget);
@@ -60,8 +65,33 @@ public class MainActivity extends ActionBarActivity {
         ListView myListView = (ListView) findViewById(R.id.listView);
         myListView.setAdapter(objmyAdapter);
 
+        //Active ClickListView
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                showClick(strNameFood[position], strPrice[position]);
+
+            }   // event
+        });
+
 
     }   // onCreate
+
+    private void showClick(String strFood, String strPrice) {
+        AlertDialog.Builder objBuilder = new AlertDialog.Builder(this);
+        objBuilder.setTitle("Confirm Order");
+        objBuilder.setMessage("Food = " + strFood + "\n" + "Price = " + strPrice);
+        objBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        objBuilder.show();
+    }   // showClick
+
+
 
     private void deleteAllData() {
         SQLiteDatabase objSQLite = openOrCreateDatabase("my_menu.db", MODE_PRIVATE, null);
