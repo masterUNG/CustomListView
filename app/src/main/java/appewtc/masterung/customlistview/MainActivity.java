@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -79,16 +80,29 @@ public class MainActivity extends ActionBarActivity {
     }   // onCreate
 
     private void showClick(String strFood, String strPrice) {
+
+
+
         AlertDialog.Builder objBuilder = new AlertDialog.Builder(this);
+
+        final CharSequence[] charDesk = {"โต้ะ 1", "โต้ะ 2", "โต้ะ 3", "โต้ะ 4", };
+
         objBuilder.setTitle("Confirm Order");
-        objBuilder.setMessage("Food = " + strFood + "\n" + "Price = " + strPrice);
-        objBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+
+        objBuilder.setCancelable(false);
+
+        objBuilder.setSingleChoiceItems(charDesk, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "You Choose ==> " + charDesk[which], Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
             }
         });
-        objBuilder.show();
+
+
+        AlertDialog objAlertDialog = objBuilder.create();
+        objAlertDialog.show();
+
     }   // showClick
 
 
